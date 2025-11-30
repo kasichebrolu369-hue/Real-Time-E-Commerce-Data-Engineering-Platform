@@ -1,0 +1,20 @@
+# Custom Spark Image with Python dependencies
+FROM bitnami/spark:3.5.0
+
+USER root
+
+# Install Python dependencies
+RUN pip install --no-cache-dir \
+    pandas>=2.2.0 \
+    numpy>=1.26.0 \
+    faker>=22.0.0 \
+    pyarrow>=15.0.0 \
+    scikit-learn>=1.4.0 \
+    matplotlib>=3.8.0 \
+    seaborn>=0.13.0 \
+    kafka-python>=2.0.2
+
+# Create directories
+RUN mkdir -p /scripts /data /models
+
+USER 1001

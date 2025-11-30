@@ -1,0 +1,43 @@
+# ============================================================================
+# Requirements for Python 3.13 (Current Environment)
+# ============================================================================
+# These packages work perfectly with Python 3.13
+# Install with: pip install -r requirements-python313.txt
+
+# Core Data Processing
+pandas>=2.2.0
+numpy>=1.26.0
+faker>=22.0.0
+pyarrow>=15.0.0
+
+# Big Data & Spark (Local Mode)
+pyspark>=3.5.0
+
+# Kafka (for streaming demos)
+kafka-python>=2.0.2
+
+# ML Libraries
+scikit-learn>=1.4.0
+
+# Utilities
+python-dateutil>=2.8.2
+requests>=2.31.0
+
+# ============================================================================
+# What You Can Do With These Packages:
+# ============================================================================
+# ✅ Generate all synthetic data (1.6M+ records)
+# ✅ Run Spark in local mode (no cluster needed)
+# ✅ Train ML models (recommendations, churn prediction)
+# ✅ Process data with pandas
+# ✅ Test Kafka producer/consumer logic
+# ✅ Learn all core concepts
+
+# ============================================================================
+# NOT Included (Python 3.13 Incompatible):
+# ============================================================================
+# ❌ apache-airflow (requires Python 3.8-3.12)
+# ❌ apache-airflow-providers-* (requires Python 3.8-3.12)
+#
+# For Airflow: Create separate Python 3.11 environment
+# See: WINDOWS_INSTALLATION_GUIDE.md

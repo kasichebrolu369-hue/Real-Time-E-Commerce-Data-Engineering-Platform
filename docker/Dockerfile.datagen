@@ -1,0 +1,36 @@
+# Dockerfile for Data Generators
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements
+COPY requirements.txt .
+
+# Install Python dependencies
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
+
+# Copy data generators
+COPY data_generators /app/data_generators
+COPY scripts /app/scripts
+
+# Create data directories
+RUN mkdir -p /app/data/raw/users \
+    /app/data/raw/products \
+    /app/data/raw/transactions \
+    /app/data/raw/clickstream \
+    /app/data/clean \
+    /app/data/warehouse \
+    /app/data/analytics \
+    /app/models
+
+WORKDIR /app/data_generators
+
+# Run all generators by default
+CMD ["python", "run_all_generators.py"]
